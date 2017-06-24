@@ -1,3 +1,4 @@
+require 'active_support'
 require 'user_naming/version'
 require 'user_naming/user'
 

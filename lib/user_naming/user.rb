@@ -9,6 +9,8 @@ module UserNaming
     def last_name
       if name.split.count > 1
         name.split[1..-1].join(' ')
+      else
+        ''
       end
     end
 

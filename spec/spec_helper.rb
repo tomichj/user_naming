@@ -1,11 +1,15 @@
-require "bundler/setup"
-require "user_naming"
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+ENV['RAILS_ENV'] ||= 'test'
+
+require 'user_naming'
+require 'rspec'
+require 'active_support'
+require 'factory_girl'
+
+# Load factory girl factories.
+Dir[File.join(File.dirname(__FILE__), 'factories/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
-
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
+  config.include FactoryGirl::Syntax::Methods
+  config.order = :random
 end
