@@ -50,6 +50,7 @@ Non-mutating accessors to read the user's name in different formats are provided
 
 - name
 - first_name
+- middle name
 - last_name
 - initials
 - first_name_last_initial
