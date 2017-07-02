@@ -19,6 +19,10 @@ RSpec.describe UserNaming do
       expect(@user.first_name).to eq 'Bilbo'
     end
 
+    it 'has no middle_name' do
+      expect(@user.middle_name).to be_empty
+    end
+
     it 'has no last name' do
       expect(@user.last_name).to be_empty
     end
@@ -41,7 +45,11 @@ RSpec.describe UserNaming do
       expect(@user.first_name).to eq 'Bilbo'
     end
 
-    it 'has no last name' do
+    it 'has no middle name' do
+      expect(@user.middle_name).to be_empty
+    end
+
+    it 'has a last name' do
       expect(@user.last_name).to eq 'Baggins'
     end
 
@@ -63,12 +71,42 @@ RSpec.describe UserNaming do
       expect(@user.first_name).to eq 'Bilbo'
     end
 
-    it 'has no last name' do
-      expect(@user.last_name).to eq 'Foo Baggins'
+    it 'has a middle name' do
+      expect(@user.middle_name).to eq 'Foo'
+    end
+
+    it 'has a last name' do
+      expect(@user.last_name).to eq 'Baggins'
     end
 
     it 'has initials' do
       expect(@user.initials).to eq 'BFB'
+    end
+
+    it 'has first name last initial' do
+      expect(@user.first_name_last_initial).to eq 'Bilbo B.'
+    end
+  end
+
+  context 'four part name' do
+    before do
+      @user = build(:user, name: 'Bilbo Ballard Foo Baggins')
+    end
+
+    it 'has a first_name' do
+      expect(@user.first_name).to eq 'Bilbo'
+    end
+
+    it 'has a middle name' do
+      expect(@user.middle_name).to eq 'Ballard Foo'
+    end
+
+    it 'has a last name' do
+      expect(@user.last_name).to eq 'Baggins'
+    end
+
+    it 'has initials' do
+      expect(@user.initials).to eq 'BBFB'
     end
 
     it 'has first name last initial' do
