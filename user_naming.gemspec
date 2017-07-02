@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Justin Tomich']
   spec.email         = ['justin@tomich.org']
   spec.homepage      = 'http://github.com/tomichj/user_naming'
-  spec.summary       = 'A rails gem to provide naming methods for user models'
+  spec.summary       = 'A rails gem providing naming methods for user models'
   spec.description   = ''
   spec.license       = 'MIT'
 
