@@ -1,38 +1,68 @@
 # UserNaming
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/user_naming`. To experiment with that code, run `bin/console` for an interactive prompt.
+UserNaming is a simple gem that provides a 'name' column and some standardized way to deal with user's names in
+rails applications.
 
-TODO: Delete this and the text above, and describe your gem
+This isn't a big gem: it's a migration and a module with 4 or 5 methods that you include in your 'user' class. 
+But, it lets me deal with user's names in the same way in every application I build. Over time, this pays off.
+
+This gem currently supports rails 5 and beyond; adding 4.2 support is trivial, but would also require
+adding an `appraisal` configuration. Open for PRs if interested.
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile` and run `bundle install` to install it:
 
 ```ruby
 gem 'user_naming'
 ```
 
-And then execute:
+Then run the UserNaming install generator:
 
-    $ bundle
+```sh
+rails generate user_naming:install
+```
 
-Or install it yourself as:
+If your user model is not `User`, you can (optionally) specify a user model with the `--model` flag. For example,
+if your user model class is `Person`:
 
-    $ gem install user_naming
+```sh
+rails generate user_naming:install --model Person
+```
+
+After you've run the install generator, apply the migration that was just generated:
+```sh
+rails db:migrate
+```
+
+The generator does the following:
+
+* Insert `include UserNaming::User` into your `User` model.
+* Create a migration to add a `name` column to your `User` table.
+
 
 ## Usage
 
-TODO: Write usage instructions here
+UserNaming supports setting the user's name as one field via `name=`.
 
-## Development
+Non-mutating accessors to read the user's name in different formats are provided: 
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+- name
+- first_name
+- last_name
+- initials
+- first_name_last_initial
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+That's it!
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/user_naming. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tomichj/user_naming. 
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to
+adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
