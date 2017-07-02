@@ -1,6 +1,6 @@
 # UserNaming
 
-UserNaming is a simple gem that provides a 'name' column and some standardized way to deal with user's names in
+UserNaming is a simple gem that provides a 'name' column and some methods to standardize displaying user names in
 rails applications.
 
 This isn't a big gem: it's a migration and a module with 4 or 5 methods that you include in your 'user' class. 
@@ -48,12 +48,12 @@ UserNaming supports setting the user's name as one field via `name=`.
 
 Non-mutating accessors to read the user's name in different formats are provided: 
 
-- name
-- first_name
-- middle name
-- last_name
-- initials
-- first_name_last_initial
+- name - the full name
+- first_name - always the first word of the name
+- middle name - everything that's not the first or last name
+- last_name - the last word of the name
+- initials - initials, joined without period or any other delimiter
+- first_name_last_initial - first name, last initial with a .
 
 That's it!
 
