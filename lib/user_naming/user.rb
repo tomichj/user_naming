@@ -25,11 +25,11 @@ module UserNaming
     # The last name.
     #
     # A name with only one part will return an empty string.
-    # A name with two or more parts will return everything after the first part.
+    # A name with two or more parts will return the last part.
     #
     # Examples:
     #   'Bilbo' will have a last name of ''.
-    #   'Bilbo Foo Baggins' will have a last name of 'Foo Baggins'.
+    #   'Bilbo Foo Baggins' will have a last name of 'Baggins'.
     #
     # @return [String]
     def last_name
