@@ -11,4 +11,4 @@ No code changes, just fixing permissions in the gem build.
 Initial release
 
 
-[1.0.1]: https://github.com/tomichj/user_time_zones/compare/v1.0.0...v1.0.1
+[1.0.1]: https://github.com/tomichj/user_naming/compare/v1.0.0...v1.0.1
