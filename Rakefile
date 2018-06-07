@@ -6,7 +6,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 task :build do
-  system "gem build user_time_zones.gemspec"
+  system "gem build user_naming.gemspec"
 end
 
 task release: :build do
